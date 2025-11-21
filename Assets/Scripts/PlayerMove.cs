@@ -9,14 +9,14 @@ public class PlayerMove : MonoBehaviour, IKillable
     private bool holdingJump = false;
 	private bool facingRight = true;
     private bool frozen = false;
-    private int lives = 5;
     
 	private Rigidbody2D rigidbody;
     private Transform spriteTransform;
     private Animator animator;
 
-    [SerializeField] private TextMeshProUGUI livesText;
+    [SerializeField] private int lives = 5;
     [SerializeField] private float speed;
+    [SerializeField] private TextMeshProUGUI livesText;
     [SerializeField] private LayerMask groundMask;
     [SerializeField] private Transform groundChecker;
 
