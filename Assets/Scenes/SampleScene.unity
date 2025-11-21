@@ -405,7 +405,6 @@ GameObject:
   m_Component:
   - component: {fileID: 579964694}
   - component: {fileID: 579964693}
-  - component: {fileID: 579964695}
   - component: {fileID: 579964696}
   m_Layer: 0
   m_Name: GlobalMusicSource
@@ -526,19 +525,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1758464011}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &579964695
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 579964692}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17460c1257e29d5488b4ff154be7b0e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mixer: {fileID: 24100000, guid: 9874a8353f4559c498b856637f7c69a7, type: 2}
 --- !u!114 &579964696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1194,7 +1180,7 @@ GameObject:
   - component: {fileID: 1398316754}
   - component: {fileID: 1398316753}
   m_Layer: 5
-  m_Name: MathlerInteractPrompt
+  m_Name: ManHelloText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1411,7 +1397,7 @@ GameObject:
   - component: {fileID: 1583727397}
   - component: {fileID: 1583727398}
   m_Layer: 0
-  m_Name: ColorMan
+  m_Name: Man
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1430,7 +1416,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1398316751}
-  dialogGameObjects: []
 --- !u!61 &1583727395
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1645,8 +1630,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66ac081c2e88e96439babd0fd2c81e95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  livesText: {fileID: 1977901007}
+  lives: 5
   speed: 5
+  livesText: {fileID: 1977901007}
   groundMask:
     serializedVersion: 2
     m_Bits: 64
