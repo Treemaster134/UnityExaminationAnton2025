@@ -4,20 +4,14 @@ using UnityEngine.InputSystem;
 
 public class MusicManScript : MonoBehaviour
 {
-    private InputAction interactAction;
     [SerializeField] private GameObject text;
     [SerializeField] private GameObject[] dialogGameObjects;
     private bool touchingPlayer = false;
     private int dialogIndex = 0;
-
-    private void Start()
-    {
-        interactAction = InputSystem.actions.FindAction("Interact");
-    }
-
+    private bool pressedInteract = false;
     private void Update()
     {
-        if (touchingPlayer && interactAction.IsPressed())
+        if (touchingPlayer && pressedInteract)
         {
             dialogGameObjects[dialogIndex].SetActive(true);
             dialogGameObjects[dialogIndex].GetComponent<Dialog>().StartDialog();
@@ -42,5 +36,11 @@ public class MusicManScript : MonoBehaviour
     {
         text.gameObject.SetActive(false);
         touchingPlayer = false;
+    }
+
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        if(context.started) pressedInteract = true;
+        if(context.canceled) pressedInteract = false;
     }
 }

@@ -1,9 +1,10 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using TMPro;
 
-public class PlayerMove : MonoBehaviour
+public class PlayerMove : MonoBehaviour, IKillable
 {
     private bool holdingJump = false;
 	private bool facingRight = true;
@@ -41,7 +42,7 @@ public class PlayerMove : MonoBehaviour
                 moveInput.x * speed,
                 rigidbody.linearVelocity.y
             );
-            
+
             if (jumped && 
                
                 Physics2D.OverlapBox(groundChecker.position, groundChecker.localScale / 2.0f,0, groundMask)
@@ -67,15 +68,7 @@ public class PlayerMove : MonoBehaviour
         //Die if player falls off
         if (transform.position.y < -35.0f)
         {
-            livesText.SetText($"Lives: {--lives}");
-            if (lives <= 0)
-            {
-                Destroy(gameObject);
-                return;
-            }
-            
-            transform.position = Vector2.zero;
-            rigidbody.linearVelocity = Vector2.zero;
+            Kill();
         }
     }
 
@@ -110,5 +103,18 @@ public class PlayerMove : MonoBehaviour
     {
         if(context.started) jumped = true;
         if(context.canceled) jumped = false;
+    }
+
+    public void Kill()
+    {
+        livesText.SetText($"Lives: {--lives}");
+        if (lives <= 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            return;
+        }
+        
+        transform.position = Vector2.zero;
+        rigidbody.linearVelocity = Vector2.zero;
     }
 }

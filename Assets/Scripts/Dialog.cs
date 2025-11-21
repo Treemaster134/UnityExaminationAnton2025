@@ -22,15 +22,16 @@ public class Dialog : MonoBehaviour
         }
         else
         {
-            dialogText.SetText($"{name}:\n{lines[dialogProgress]}");
+            dialogText.text = $"{name}:\n{lines[dialogProgress]}";
         }
     }
 
     public void StartDialog()
     {
+        print("Started");
         OnDialogStarted?.Invoke();
         dialogProgress = 0;
-        dialogText.SetText($"{name}:\n{lines[dialogProgress]}");
+        dialogText.text = $"{name}:\n{lines[dialogProgress]}";
     }
     
 }
